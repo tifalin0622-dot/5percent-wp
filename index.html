@@ -50,11 +50,13 @@ nav.links > a:hover, nav.links > .dropdown > a:hover{color:var(--ink);}
 
 /* HERO */
 .hero{padding:88px 0 64px;}
-.hero-grid{display:grid;grid-template-columns:1.1fr .7fr;gap:48px;align-items:center;}
+.hero-grid{display:grid;grid-template-columns:1.1fr .7fr;gap:48px 48px;align-items:center;grid-template-areas:"text number" "cta number";}
+.hero-text{grid-area:text;}
+.hero-cta{grid-area:cta;}
+.hero-number{grid-area:number;}
 @media(max-width:860px){
-  .hero-grid{grid-template-columns:1fr;}
-  .hero-grid > div:first-child{order:2;}
-  .hero-grid > div:last-child{order:1;}
+  .hero-grid{grid-template-columns:1fr;grid-template-areas:"text" "number" "cta";gap:8px;}
+  .hero-cta{margin-top:28px;}
 }
 .hero h1{font-size:clamp(26px,4vw,40px);margin-bottom:10px;}
 .hero .sub{font-size:17px;color:var(--terracotta);font-weight:700;margin-bottom:16px;}
@@ -199,7 +201,7 @@ td.price{font-weight:700;}
 .faq-q .plus{font-size:20px;color:var(--terracotta);transition:transform .2s;font-weight:400;flex-shrink:0;}
 .faq-item.open .faq-q .plus{transform:rotate(45deg);}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;}
-.faq-a p{color:var(--ink-soft);font-size:16px;line-height:1.7;padding-bottom:20px;max-width:none;}
+.faq-a p{color:var(--ink-soft);font-size:16px;line-height:1.7;margin:0;padding-bottom:12px;max-width:none;}
 
 /* FORM */
 .reg-form{max-width:780px;}
@@ -389,7 +391,7 @@ footer a:hover{color:var(--terracotta);}
 .reg-success{margin-top:20px;padding:24px 26px;background:#EFF5EF;border:1px solid var(--teal);border-radius:var(--radius);text-align:center;}
 .reg-success-icon{width:40px;height:40px;line-height:40px;border-radius:50%;background:var(--teal);color:#fff;font-size:20px;font-weight:900;margin:0 auto 10px;}
 .reg-success-title{font-family:'Noto Serif TC',serif;font-weight:900;font-size:20px;color:var(--teal);margin-bottom:8px;}
-.reg-success-body{font-size:16px;line-height:1.6;color:var(--ink-soft);max-width:46ch;margin:0 auto;}
+.reg-success-body{font-size:16px;line-height:1.6;color:var(--ink-soft);max-width:60ch;margin:0 auto;}
 .reg-success-links{margin-top:16px;font-size:13.5px;color:var(--ink-soft);display:flex;flex-wrap:wrap;justify-content:center;gap:6px;}
 .reg-success-links a{color:var(--terracotta);text-decoration:none;font-weight:700;}
 .reg-success-links a:hover{text-decoration:underline;}
@@ -500,17 +502,17 @@ footer a:hover{color:var(--terracotta);}
 <!-- HERO -->
 <section class="hero">
   <div class="wrap hero-grid">
-    <div>
+    <div class="hero-text">
       <span class="eyebrow">線上工作坊 ＋ 一對一陪跑方案</span>
       <h1>主動創造 5% 改變</h1>
       <p class="sub">改變不必很大，只需要持續發生每一個 5% 的小行動。</p>
-      <p class="lede"><b>用一套原創《5% 行為改變卡》，2.5 小時看懂讓你卡住的行為，找到今天就能開始的下一步。</b>你是否也曾經下定決心要改變，當下信心滿滿，三個月後卻又回到原本的循環？這不是意志力不夠，而是還沒看清楚——卡住你的，究竟是哪一個情境／行為；或是你需要的是找到可以發揮或驅動自己的情境／行為。</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#register">報名工作坊</a>
-        <a class="btn btn-ghost" href="#plans">了解一對一方案</a>
-      </div>
+      <p class="lede"><b>用一套原創《5% 行為改變卡》，2.5 小時看懂讓你卡住的行為，找到今天就能開始的下一步。</b>你是否也曾經下定決心要改變，當下信心滿滿，三個月後卻又回到原本的循環？這不是意志力不夠，而是還沒看清楚——卡住你的，究竟是哪一個行為；或是你需要的是找到可以發揮或驅動自己的行為。</p>
     </div>
-    <div>
+    <div class="hero-cta cta-row">
+      <a class="btn btn-primary" href="#register">報名工作坊</a>
+      <a class="btn btn-ghost" href="#plans">了解一對一方案</a>
+    </div>
+    <div class="hero-number">
       <div class="big-number">5<span class="pct">%</span></div>
       <div class="big-number-cap">本週，就能開始的小改變</div>
     </div>
@@ -549,8 +551,8 @@ footer a:hover{color:var(--terracotta);}
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">系列總覽</span>
-      <h2 class="ladder-title">用《5% 行為改變卡》六大步驟：引導到主動創造，長出對自己的信任</h2>
-      <p style="margin-top:14px;color:var(--ink-soft);font-size:16px;line-height:1.7;" class="ladder-lede">這是 Your Turn 最新推出線上互動測驗工具《5% 行為改變卡》，我們將以六步驟為核心，透過工具與工作坊引導——從「發現自己在什麼情境／狀態下會做出這個行為」開始，到「把覺察變成清晰的專屬原則」，落實更一致性的生活與工作狀態。</p>
+      <h2 class="ladder-title">用《5% 行為改變卡》六大步驟：引導主動創造，長出對自己的信任</h2>
+      <p style="margin-top:14px;color:var(--ink-soft);font-size:16px;line-height:1.7;" class="ladder-lede">這是 Your Turn 最新推出線上互動測驗工具《5% 行為改變卡》，我們將以六步驟為核心，透過工具與工作坊Ｘ一對一教練引導——從「發現自己在什麼情境／狀態下會做出這個行為」開始，到「把覺察變成清晰的專屬原則」，落實更一致性的生活與工作狀態。</p>
     </div>
 
     <div class="six-steps-row">
@@ -612,7 +614,7 @@ footer a:hover{color:var(--terracotta);}
 
     <div class="tool-note" style="margin-top:36px;">
       <b>關於《5% 行為改變卡》</b><br>
-      這套工具包含有機行為卡、有毒行為卡、改變行為卡，三卡一組，工作坊會依照六步驟引導使用。這套工具是 Tifa 歷時一年以上，結合心理學理論、並與多位業界人才發展專家合作討論後打造的工具。每一張卡片背後都有具體的行為場景與心理學依據——帶你看見，你在什麼時候、什麼狀態下，會做出哪些行為，以及那些行為背後真正的需要是什麼。透過《5% 行為改變卡》與引導提問，你將重新理解自己的慣性與動機，讓工作與生活重新貼近你的核心價值。
+      這套工具包含有機行為卡、有毒行為卡、改變行為卡，三卡一組，工作坊會依照六步驟引導使用。這套工具是 Tifa 歷時一年以上，結合心理學理論、並與多位業界人才發展專家參與討論與把關。每一張卡片背後都有具體的行為場景與心理學依據——帶你看見，你在什麼時候、什麼狀態下，會做出哪些行為，以及那些行為背後真正的需要是什麼。透過《5% 行為改變卡》與引導提問，你將重新理解自己的慣性與動機，讓工作與生活重新貼近你的核心價值。
     </div>
 
   </div>
@@ -876,7 +878,7 @@ footer a:hover{color:var(--terracotta);}
       <div class="ugc-track" id="ugc-track">
         <div class="ugc-card">
           <p class="ugc-quote">這次工作坊為我帶來「意外的驚喜」。藉由行為卡，讓我大腦中的想法轉化成能具體化，更有效幫助我與他人溝通時，<strong>自己可以更清晰、有方向，有助於我思考如何和不同特質的溝通與合作更順暢。</strong></p>
-          <p class="ugc-attr">—— 職涯諮詢師、企業引導師 Rick</p>
+          <p class="ugc-attr">—— 企業引導師 Rick</p>
         </div>
         <div class="ugc-card">
           <p class="ugc-quote">「整個體驗是有遊戲感又能深度探索的旅程。」透過線上互動操作，既有趣又能專注地觀察自己。在引導與提問中，看見行為背後的能量來源，也意外發現自己此階段更偏向「關係導向」，重視與人的連結。<strong>這套工具幫助我遇見了「自己最新的狀態與需求」，很適合用來重新認識不斷變化中的自己。</strong></p>
@@ -892,7 +894,7 @@ footer a:hover{color:var(--terracotta);}
         </div>
         <div class="ugc-card">
           <p class="ugc-quote">今天透過行為探索卡，我發現自己在工作上總是以團隊為主，很少思考『我的工作哲學是什麼』。這樣的覺察讓我開始想重新定義屬於自己的方式，也好奇他人是如何書寫與表達的。<strong>這堂課讓我更清楚自己的特質，也更想與他人學習交流。</strong>」</p>
-          <p class="ugc-attr">—— 浩慈</p>
+          <p class="ugc-attr">—— 跨領域轉職中・好小姐</p>
         </div>
         <div class="ugc-card">
           <p class="ugc-quote">這套牌卡以「行為驅動」為核心設計，為務實且實際導向，<strong>讓不熟悉往內在深處走的人，也能解碼自己的工作狀態。</strong>適合小型團體或獨立工作者，可幫助了解合作對象與彼此的工作狀態。</p>
@@ -913,6 +915,38 @@ footer a:hover{color:var(--terracotta);}
         <div class="ugc-card">
           <p class="ugc-quote">透過課程，我開始看見行為本身同時可能帶來助力與耗損，理解原本重視的特質在不同情境下會產生不同影響，並練習降低其負向干擾。也透過可控、半可控與不可控的盤點，發現部分情境其實仍有調整空間，同時<strong>學會接納真正無法掌控的狀態，讓自己少一點自責，多一份彈性與安心。</strong></p>
           <p class="ugc-attr">—— 理財規劃師 TingC</p>
+        </div>
+        <div class="ugc-card">
+          <p class="ugc-quote">在陪跑教練的指導下，我學會在不確定中找到節奏——面對變動與資訊不齊時，能釐清優先順序、對齊進度並維持品質。我也學到主動建立節奏的重要性：先定義版本目標、與前輩與技術端確認可行性，再分階段推進。透過陪跑，我更能辨識「不喜歡」與「不擅長」的差異，理解產品與技術間的連結。在任務中，我曾提出流程優化報告，減少溝通成本並提升效率。<strong>陪跑教練的能力亮點卡與專案建議，讓我在職能、人際與專案管理上都有明顯成長。</strong></p>
+          <p class="ugc-attr">—— 職涯轉換期間・J 小姐</p>
+        </div>
+        <div class="ugc-card">
+          <p class="ugc-quote">重新回顧這兩次的諮詢內容，非常感謝你的協助與陪伴。兩次的討論，好像解開我心裡小小的結：其實我喜歡我的工作，但因價值需求未被滿足而感到疲憊。透過討論，我釐清了自己在意的價值與能力，重新開啟對職場的想像。特別是成就感矩陣，讓我第一次看見自己的成就定義與來源：大多來自自身，卻過於依賴「好的結果」。理解這一點後，<strong>我開始練習在過程與努力中獲得成就感，而非只看結果。</strong>釐清後，心裡更踏實，也能較安心面對離開工作的選擇，期待接下來的休息能有更多發現。</p>
+          <p class="ugc-attr">—— 40 歲・金融業資深主管</p>
+        </div>
+        <div class="ugc-card">
+          <p class="ugc-quote">Tifa 把「發掘他人潛能」跟「務農者、動物保育員」連結的瞬間大受震驚，因為我是憑第一直覺選牌，諮商時才發現自己打從心底不喜歡「主動」發掘他人潛能、等待成長，但如果有人跟我討論他的職涯問題，我會很樂意解決問題，<strong>認清自己的核心是追求快速解決問題的類型。</strong></p>
+          <p class="ugc-attr">—— 金融業主管・L 小姐</p>
+        </div>
+        <div class="ugc-card">
+          <p class="ugc-quote">我想跨領域，轉職到知識產業的產品經理職位。Tifa 很快地就讓我瞭解到工作當中要掌握的核心和挑戰。1 個小時結束過後，<strong>Tifa 提供工作架構還是能持續幫助到我，能讓我自己去思考，接下來的面試與工作。</strong></p>
+          <p class="ugc-attr">—— 33 歲・跨領域轉職</p>
+        </div>
+        <div class="ugc-card">
+          <p class="ugc-quote">在這次探索裡，我最大的收穫是更清楚地感覺到，自己在判斷與選擇時真正依循的是什麼。行為探索卡的三次體驗剛好都扣合到我當下的狀態，讓我看見內心其實一直在拉扯——一方面想要繼續發揮專長，一方面也期待有穩定的薪水，同時又希望維持自己舒服的生活節奏。透過這樣的過程，我能更直接、更坦白地對自己說清楚：為什麼要選，怎麼選。<strong>這讓我覺得安心，也覺得自己更有力量去面對接下來的選擇。</strong>整體而言，這次探索不只是幫助我做判斷，更提醒我在表達和思考上，都可以慢慢練習得更清晰、更真實。</p>
+          <p class="ugc-attr">—— 38 歲・音樂經紀</p>
+        </div>
+        <div class="ugc-card">
+          <p class="ugc-quote">行為探索卡協助你從自身行為與經驗出發，打造專屬於你的「個人使用說明書」，而非套用星座等通用框架。<strong>它最大的幫助是能有效縮短「知道」到「做到」的距離，讓自我探索不再停留於思考，而是能快速應用於實際行動。</strong>如同進行一場個人的「斷層掃描」，能獲得比一般概括性工具更深入、細緻的個體化洞察。</p>
+          <p class="ugc-attr">—— 37 歲・連續創業家 L 先生</p>
+        </div>
+        <div class="ugc-card">
+          <p class="ugc-quote">面對數位遊牧、接案等多元工作樣貌，專為職涯設計的「工作價值卡」顯得格外必要。此工具能協助你在複雜的工作環境中，為自己找到清晰的「定位」，避免因定位模糊而感到格格不入或心態矛盾。<strong>透過釐清自己在工作中最重視的核心價值，能更有意識地做出選擇，確保你的努力與內在追求保持一致。</strong></p>
+          <p class="ugc-attr">—— 37 歲・連續創業家 L 先生</p>
+        </div>
+        <div class="ugc-card">
+          <p class="ugc-quote">牌卡可以有效幫助我釐清，我內心核心的渴望是什麼？以及，<strong>我對於職涯的期待，可以更清楚抓到自己其實對於能力特質、工作屬性、未來期待有哪些嚮往。</strong></p>
+          <p class="ugc-attr">—— 知識教育業・匿名</p>
         </div>
       </div>
     </div>
@@ -1042,14 +1076,14 @@ footer a:hover{color:var(--terracotta);}
         <button class="faq-q"><span class="faq-num">01</span><span class="faq-q-text">我該從工作坊開始，還是一對一呢？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>這取決於你「目前的卡關狀態」與「希望獲得的陪伴程度」：</p>
-          <p style="margin-top:14px;"><b>👉 選擇【線上工作坊】如果當下的你：</b></p>
-          <ul class="tick" style="margin:8px 0 16px;">
+          <p style="margin-top:10px;padding-bottom:4px;"><b>👉 選擇【線上工作坊】如果當下的你：</b></p>
+          <ul class="tick" style="margin:0 0 12px;">
             <li>想在 2-3 小時內快速盤點盲點，找出與釐清職場有毒與生活有機的行為／情境，一起練習主動再設計自己的生活與節奏。</li>
             <li>偏好低門檻體驗，想先透過工具練習轉念與 5% 微小行動。</li>
             <li>預算有限，希望先嘗試輕量化的小班制學習。</li>
           </ul>
-          <p><b>👉 選擇【一對一方案】如果當下的你：</b></p>
-          <ul class="tick" style="margin:8px 0 0;">
+          <p style="margin-top:10px;padding-bottom:4px;"><b>👉 選擇【一對一方案】如果當下的你：</b></p>
+          <ul class="tick" style="margin:0;">
             <li>正面臨職涯大轉折或長期卡關，希望做一次完整的內在盤點（包含價值觀與潛力技能）。</li>
             <li>過去常常「上完課很有感，回去又打回原形」，需要長期專屬的覆盤陪伴來打破拖延。</li>
             <li>重視個人隱私，希望諮詢師 100% 針對你的個人情境打造客製化說明書。</li>
@@ -1074,31 +1108,31 @@ footer a:hover{color:var(--terracotta);}
         <div class="faq-a">
           <p>兩者定位不同，皆可單獨報名，差別在於你是需要「深度盤點，定位自我」還是「長期陪伴，持續落實」：</p>
 
-          <p style="margin-top:16px;"><b>📘 選擇 A【讓生活發光的使用說明書】（4–10 次）</b></p>
-          <p style="margin:8px 0 6px;color:var(--ink-soft);">特別適合這樣的你：</p>
-          <ul class="tick" style="margin-bottom:14px;">
+          <p style="margin-top:12px;padding-bottom:4px;"><b>📘 選擇 A【讓生活發光的使用說明書】（4–10 次）</b></p>
+          <p style="margin-top:6px;padding-bottom:2px;color:var(--ink-soft);">特別適合這樣的你：</p>
+          <ul class="tick" style="margin:0 0 12px;">
             <li>在職場或關係中經常「溝通卡關」，不知道如何開口表達。</li>
             <li>習慣把別人的需求放前面，無法把自己的真實需要講出來、總是在委屈配合他人。</li>
             <li>正面臨職涯迷惘，想要一次性搞懂自己的地雷、優勢與核心價值觀。</li>
           </ul>
           <p style="margin-bottom:10px;"><b>方案焦點：</b>透過系統化工具盤點你的「工作與生活核心價值觀、優勢潛力與盲區、行為模式」，引導寫出一份個人專屬內在使用說明書。讓你未來面對主管、同事或伴侶時，能有條理且清晰地表達自己的界線與使用方式。</p>
-          <p style="margin:0 0 6px;color:var(--ink-soft);">工具應用：</p>
-          <ul class="tick" style="margin-bottom:20px;">
+          <p style="margin:0 0 4px;padding-bottom:2px;color:var(--ink-soft);">工具應用：</p>
+          <ul class="tick" style="margin:0 0 14px;">
             <li><b>《價值實踐卡》：</b>排出真正在乎的順序，看見你在乎的工作與生活價值。</li>
             <li><b>《能力亮點卡》：</b>盤點你的優勢技能與盲區，讓工作不卡卡。</li>
             <li><b>《5% 行為改變卡》：</b>看懂你的有機高能與有毒耗損模式，重新進行工作再設計。</li>
             <li><b>《NVC 非暴力溝通》：</b>練習運用四步驟，把想法與需要講清楚，雙向對齊共識。</li>
           </ul>
 
-          <p><b>⏳ 選擇 B【5%改變陪跑計畫】（半年／一年期）</b></p>
-          <p style="margin:8px 0 6px;color:var(--ink-soft);">特別適合這樣的你：</p>
-          <ul class="tick" style="margin-bottom:14px;">
+          <p style="margin-top:14px;padding-bottom:4px;"><b>⏳ 選擇 B【5%改變陪跑計畫】（半年／一年期）</b></p>
+          <p style="margin-top:6px;padding-bottom:2px;color:var(--ink-soft);">特別適合這樣的你：</p>
+          <ul class="tick" style="margin:0 0 12px;">
             <li>已經有清晰方向或目標，但容易三分鐘熱度、缺乏持續推進的動力。</li>
             <li>計畫總是跟不上變化，需要有經驗的陪伴者幫你客觀抓出思維盲點。</li>
           </ul>
           <p><b>方案焦點：</b>以 MVP 覆盤法則進行定期對焦，陪你建立長期反思習慣、動態微調行動計畫，確保 5% 的微小改變真的在生活中持續發生。</p>
 
-          <p style="margin-top:16px;">💡 <b>小建議：</b>如果你想要「先梳理出個人地圖，再有人陪著一步步走完」，也可以討論綜合方案，鼓勵你可以先私訊聊聊 15 分鐘再決定方案！</p>
+          <p style="margin-top:12px;">💡 <b>小建議：</b>如果你想要「先梳理出個人地圖，再有人陪著一步步走完」，也可以討論綜合方案，鼓勵你可以先私訊聊聊 15 分鐘再決定方案！</p>
         </div>
       </div>
 
@@ -1106,7 +1140,7 @@ footer a:hover{color:var(--terracotta);}
         <button class="faq-q"><span class="faq-num">04</span><span class="faq-q-text">【自我實現工作坊】跟坊間的自我照顧、紓壓課有什麼不同？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>這不是一堂教你放鬆放空的紓壓課，而是一堂陪你「主動為潛力爭取空間」的實踐課。</p>
-          <ul class="tick" style="margin-top:12px;">
+          <ul class="tick" style="margin-top:8px;">
             <li><b>一般紓壓課：</b>著重在被動的「充電與休息」，讓你暫時放鬆，但回到日常生活後問題依然存在。</li>
             <li><b>【自我實現工作坊】：</b>著重在「主動發展潛力，實現理想自我」。我們透過牌卡帶你精準捕捉進入心流的有機行為，將對理想生活的嚮往，轉化為日常生活中每天都能延續的微小行動，特別適合想在下班後開啟第二人生的你。</li>
           </ul>
@@ -1117,7 +1151,7 @@ footer a:hover{color:var(--terracotta);}
         <button class="faq-q"><span class="faq-num">05</span><span class="faq-q-text">我完全沒有心理學背景，可以參加嗎？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>完全可以！這套課程就是專門為所有人設計的實用工具。</p>
-          <p style="margin-top:10px;">課程以 Tifa 獨家研發的《5% 行為改變卡》為核心（內含「有毒行為卡」、「有機行為卡」與「5% 改變卡」），搭配自我決定理論、工作重塑與生命設計等心理學架構。我們已將硬核的理論轉化為白話引導、直覺抽卡與實作練習，你不需要讀過任何心理學書籍，就能輕鬆上手、看懂自己。</p>
+          <p style="margin-top:8px;">課程以 Tifa 獨家研發的《5% 行為改變卡》為核心（內含「有毒行為卡」、「有機行為卡」與「5% 改變卡」），搭配自我決定理論、工作重塑與生命設計等心理學架構。我們已將硬核的理論轉化為白話引導、直覺抽卡與實作練習，你不需要讀過任何心理學書籍，就能輕鬆上手、看懂自己。</p>
         </div>
       </div>
 
@@ -1125,7 +1159,7 @@ footer a:hover{color:var(--terracotta);}
         <button class="faq-q"><span class="faq-num">06</span><span class="faq-q-text">什麼是《5% 行為改變卡》？有實體牌卡可以購買嗎？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>這是一套結合心理學理論與實務經驗、帶你看清自我慣性的專利引導工具。</p>
-          <ul class="tick" style="margin-top:12px;">
+          <ul class="tick" style="margin-top:8px;">
             <li><b>三大卡組設計：</b>包含「有毒行為卡」（覺察耗損）、「有機行為卡」（找回高能心流）與「改變行為卡」（落實微小行動）。在工作坊中，我們將按序帶你走過「覺察、釐清、重塑」三大步驟，完成一次深刻的自我梳理。</li>
             <li><b>專業心理學依據：</b>由創辦人 Tifa 歷時一年以上深度研發，結合自我決定理論與工作重塑等經典心理學框架，並邀請多位業界人才發展專家參與討論與把關，協助你覺察與解讀行為背後真正的「心理需要」。</li>
             <li><b>實體牌卡購買：</b>目前課程與諮詢皆使用高互動性的「線上牌卡網頁」體驗；實體牌卡已進入出版前置階段，預計於 2027 年 3 月正式推出。想獲得第一手預購訊息，歡迎追蹤 Instagram（<a href="https://www.instagram.com/yourturn.lab/" target="_blank" rel="noopener" style="text-decoration:underline;">@yourturn.lab</a>）！</li>
@@ -1137,7 +1171,7 @@ footer a:hover{color:var(--terracotta);}
         <button class="faq-q"><span class="faq-num">07</span><span class="faq-q-text">工作坊跟一對一，是線上還是實體？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>全系列皆採「線上進行」，不受地點限制！</p>
-          <p style="margin-top:10px;">不論是兩堂小班工作坊還是一對一諮詢，我們都會使用專屬的「線上互動式牌卡網頁」進行測驗與盤點。只要準備好順暢的網路、電腦（或平板）以及一顆放鬆的心，在世界任何地方都能輕鬆參與。</p>
+          <p style="margin-top:8px;">不論是兩堂小班工作坊還是一對一諮詢，我們都會使用專屬的「線上互動式牌卡網頁」進行測驗與盤點。只要準備好順暢的網路、電腦（或平板）以及一顆放鬆的心，在世界任何地方都能輕鬆參與。</p>
         </div>
       </div>
 
@@ -1145,7 +1179,7 @@ footer a:hover{color:var(--terracotta);}
         <button class="faq-q"><span class="faq-num">08</span><span class="faq-q-text">想幫公司或團隊採購，適合嗎？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>非常適合！這套系統能有效提升團隊心理安全感與跨部門溝通效率。</p>
-          <ul class="tick" style="margin:12px 0 16px;">
+          <ul class="tick" style="margin:8px 0 12px;">
             <li><b>【職場排毒工作坊】：</b>適合團隊從行為與情境出發、重塑組織文化，特別有助於團隊協作優化、主管溝通界線建立，減少組織內部無效內耗與情緒抱怨。</li>
             <li><b>【自我實現工作坊】：</b>適合員工潛力發掘、第二曲線探索與內部人才培育，提升員工內在動機。</li>
             <li><b>【一對一諮詢方案】：</b>可作為主管教練（Executive Coaching）或重點人才（Key Talent）的客製化深度陪伴方案。</li>
@@ -1158,7 +1192,7 @@ footer a:hover{color:var(--terracotta);}
         <button class="faq-q"><span class="faq-num">09</span><span class="faq-q-text">什麼樣的人，非常不適合參加這個系列？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>為了確保每一位參與者都能獲得最好的學習體驗，如果你的狀態符合以下幾點，這個課程可能「不適合」當下的你：</p>
-          <ul class="tick" style="margin-top:12px;">
+          <ul class="tick" style="margin-top:8px;">
             <li><b>期待拿到速成特效藥或標準答案者：</b>我們不提供快速技巧，而是藉由引導與教練提問，陪你梳理屬於你自己的解法。若不想花時間覺察內在與練習表達，可能會感到不符合預期。</li>
             <li><b>期待學習「帶活動／教學法」的講師或培訓師：</b>本課程的核心是帶你釐清自己在各種行為與情境下，更了解自身的界線與價值觀，並非教學技巧或課程設計的培訓班。</li>
             <li><b>現階段狀態非常穩定滿足者：</b>若你已有成熟且穩定的工作與生活原則，目前完全沒有調整或微整形的需求，把時間留給更需要的人會是更好的選擇！</li>
@@ -1170,10 +1204,10 @@ footer a:hover{color:var(--terracotta);}
         <button class="faq-q"><span class="faq-num">10</span><span class="faq-q-text">我很忙，真的能在 2.5 小時／一對一諮詢裡看到改變嗎？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>可以，因為 Your Turn 品牌不追求一次性的「宏大翻轉」，而是想陪你找到「第一個能啟動的 5% 支點」。</p>
-          <p style="margin-top:14px;"><b>🌱 單堂工作坊｜改變的點火器</b></p>
-          <p style="margin:6px 0 0;">2.5 小時的核心目標是透過牌卡快速幫你「破局與釐清」。課後你會帶走三個工作原則或自我實現原則，以及一起設定這週就能輕鬆開始的 5% 微行動，讓改變在課後自然發生。</p>
-          <p style="margin-top:16px;"><b>🤝 一對一諮詢｜落地的安全網</b></p>
-          <p style="margin:6px 0 0;">我很重視「夥伴關係與行動落地」：重視引導而非單向給答案，而是一段平等且有流動的對話合作夥伴關係。在諮詢中，我們會陪你梳理脈絡、找回主導權，但真正的改變，來自於你願意在生活中跨出那一步。透過定期的對齊與覆盤，我們一起讓這些小行動逐步累積成可持續的實質改變。</p>
+          <p style="margin-top:10px;padding-bottom:4px;"><b>🌱 單堂工作坊｜改變的點火器</b></p>
+          <p style="margin:0;">2.5 小時的核心目標是透過牌卡快速幫你「破局與釐清」。課後你會帶走三個工作原則或自我實現原則，以及一起設定這週就能輕鬆開始的 5% 微行動，讓改變在課後自然發生。</p>
+          <p style="margin-top:12px;padding-bottom:4px;"><b>🤝 一對一諮詢｜落地的安全網</b></p>
+          <p style="margin:0;">我很重視「夥伴關係與行動落地」：重視引導而非單向給答案，而是一段平等且有流動的對話合作夥伴關係。在諮詢中，我們會陪你梳理脈絡、找回主導權，但真正的改變，來自於你願意在生活中跨出那一步。透過定期的對齊與覆盤，我們一起讓這些小行動逐步累積成可持續的實質改變。</p>
         </div>
       </div>
 
@@ -1181,8 +1215,8 @@ footer a:hover{color:var(--terracotta);}
         <button class="faq-q"><span class="faq-num">11</span><span class="faq-q-text">報名後如果想取消或改期，會怎麼樣？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>我們非常理解生活中總有突發狀況，優先建議你選擇「免費改期」！</p>
-          <p style="margin-top:14px;"><b>選擇改期：</b>只要在開課／諮詢前通知我們，即可免費延期至下一場工作坊，或重新調整一對一時段。</p>
-          <p style="margin:10px 0 6px;"><b>選擇退費：</b>若確認需辦理退費，將依據你提出申請時距離開課/諮詢日期的天數分階段辦理：</p>
+          <p style="margin-top:10px;"><b>選擇改期：</b>只要在開課／諮詢前通知我們，即可免費延期至下一場工作坊，或重新調整一對一時段。</p>
+          <p style="margin:8px 0 4px;padding-bottom:2px;"><b>選擇退費：</b>若確認需辦理退費，將依據你提出申請時距離開課/諮詢日期的天數分階段辦理：</p>
           <ul class="tick">
             <li>開課 30 天以前申請：享 100% 全額退費</li>
             <li>開課 14–29 天以前申請：退還 70% 費用</li>
@@ -1348,7 +1382,7 @@ footer a:hover{color:var(--terracotta);}
       <div id="reg-success" class="reg-success" style="display:none;">
         <div class="reg-success-icon">✓</div>
         <div class="reg-success-title">報名成功！</div>
-        <p class="reg-success-body">我們已經收到你的報名資料，報名資訊確認信也會馬上寄到你填寫的 Email，記得去收信（也可以看看垃圾郵件匣），我們會在 1–2 個工作天內主動與你確認匯款是否成功。</p>
+        <p class="reg-success-body">我們已經收到你的報名資料，報名資訊確認信也會馬上寄到你填寫的 Email，記得去收信（也可以看看垃圾郵件匣），如果沒有收到款項，我們將會主動於 3 日內與你聯繫。</p>
         <div class="reg-success-links">
           <span>在等待的這段時間，歡迎追蹤：</span>
           <a href="https://www.instagram.com/yourturn.lab/" target="_blank" rel="noopener">IG @yourturn.lab</a>
@@ -1598,12 +1632,16 @@ form.addEventListener('submit',async function(e){
     return;
   }
   var pricing = regPricing.recalc();
+  var planLines = items.map(function(i){ return i.label + ' ' + i.detail + '（' + i.price.toLocaleString('zh-Hant-TW') + ' 元）'; });
+  if(pricing.bundleDiscount > 0){
+    planLines.push('兩堂合報優惠（-' + pricing.bundleDiscount.toLocaleString('zh-Hant-TW') + ' 元）');
+  }
   var fd=new FormData(form);
   var payload={
     name:fd.get('name'),age_job:fd.get('age_job'),reason:fd.get('reason'),
     email:fd.get('email'),line_id:fd.get('line_id')||'',
-    selected_plans: items.map(function(i){ return i.label + ' ' + i.detail + '（' + i.price.toLocaleString('zh-Hant-TW') + ' 元）'; }).join('；'),
-    subtotal: pricing.subtotal, discount_code: regPricing.getDiscountCode(), discount_amount: pricing.discount, total: pricing.total,
+    selected_plans: planLines.join('；'),
+    subtotal: pricing.subtotal, discount_code: regPricing.getDiscountCode(), discount_amount: pricing.codeDiscount, total: pricing.total,
     transfer_code:fd.get('transfer_code'),note:fd.get('note')||'',
     submitted_at:new Date().toISOString()
   };
