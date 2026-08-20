@@ -288,6 +288,11 @@ footer a:hover{color:var(--terracotta);}
 .pay-info-toggle summary::-webkit-details-marker{display:none;}
 .pay-info-toggle summary::before{content:"▸ ";}
 .pay-info-toggle[open] summary::before{content:"▾ ";}
+.pay-account{display:inline-flex;align-items:center;gap:8px;}
+.copy-btn{font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:12px;letter-spacing:0;color:var(--teal);background:var(--teal-tint);border:1px solid var(--teal);border-radius:999px;padding:3px 10px;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap;}
+.copy-btn:hover{background:var(--teal);color:#fff;}
+.copy-btn.copied{background:var(--teal);color:#fff;}
+.pay-info-box .copy-btn{font-size:11px;padding:2px 8px;}
 .pay-info-box{margin-top:8px;padding:12px 14px;background:var(--cream-deep);border:1px solid var(--line);border-radius:var(--radius);}
 .pay-info-box .pay-row{display:flex;justify-content:space-between;padding:6px 0;font-size:13px;border-bottom:1px dashed var(--line);}
 .pay-info-box .pay-row:last-child{border-bottom:0;}
@@ -543,6 +548,7 @@ footer a:hover{color:var(--terracotta);}
         <span class="qg-cta">→ 直接看一對一方案</span>
       </a>
     </div>
+    <p style="margin-top:20px;text-align:center;font-size:14px;color:var(--ink-soft);">還沒有頭緒？<a href="https://tifalin0622-dot.github.io/5percent-quiz/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:700;text-decoration:underline;">先花 3 分鐘做免費的「職場工作節奏測驗」→</a></p>
   </div>
 </section>
 
@@ -1057,7 +1063,7 @@ footer a:hover{color:var(--terracotta);}
     <div class="payment-box reveal">
       <h3>銀行轉帳資訊</h3>
       <div class="pay-row"><span>銀行</span><span>國泰世華銀行（013）</span></div>
-      <div class="pay-row"><span>帳號</span><span>699503727696</span></div>
+      <div class="pay-row"><span>帳號</span><span class="pay-account">699503727696<button type="button" class="copy-btn" data-copy="699503727696" onclick="copyPayAccount(this)">複製</button></span></div>
       <div class="pay-row"><span>注意事項</span><span style="font-weight:400;font-size:13.5px;">匯款後請至報名表填寫末五碼</span></div>
     </div>
   </div>
@@ -1073,7 +1079,16 @@ footer a:hover{color:var(--terracotta);}
     <div class="faq-list">
 
       <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-num">01</span><span class="faq-q-text">我該從工作坊開始，還是一對一呢？</span><span class="plus">+</span></button>
+        <button class="faq-q"><span class="faq-num">01</span><span class="faq-q-text">如果我還沒準備好報名，有更輕量的方式先體驗嗎？</span><span class="plus">+</span></button>
+        <div class="faq-a">
+          <p>有的！如果你還不確定方向，可以先花 3 分鐘做我們免費的「職場工作節奏測驗」，用同一套《5% 行為改變卡》的邏輯，快速看一眼自己目前的工作節奏樣貌，也算是提前體驗一次工作坊或一對一的核心工具。</p>
+          <p style="margin-top:10px;">做完之後如果想更深入盤點，隨時可以再回來選工作坊或一對一方案。</p>
+          <p style="margin-top:10px;">👉 <a href="https://tifalin0622-dot.github.io/5percent-quiz/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:700;text-decoration:underline;">立即免費測驗：職場工作節奏測驗</a></p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q"><span class="faq-num">02</span><span class="faq-q-text">我該從工作坊開始，還是一對一呢？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>這取決於你「目前的卡關狀態」與「希望獲得的陪伴程度」：</p>
           <p style="margin-top:10px;padding-bottom:4px;"><b>👉 選擇【線上工作坊】如果當下的你：</b></p>
@@ -1092,7 +1107,7 @@ footer a:hover{color:var(--terracotta);}
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-num">02</span><span class="faq-q-text">工作坊 A 跟 B，兩個有何差別？一定要兩堂都上嗎？</span><span class="plus">+</span></button>
+        <button class="faq-q"><span class="faq-num">03</span><span class="faq-q-text">工作坊 A 跟 B，兩個有何差別？一定要兩堂都上嗎？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>不需要兩堂都上，你可以根據目前最想解決的問題來選擇——</p>
           <ul class="tick" style="margin:12px 0 16px;">
@@ -1104,7 +1119,7 @@ footer a:hover{color:var(--terracotta);}
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-num">03</span><span class="faq-q-text">一對一的兩個方案，差別為何？我該選哪一個？</span><span class="plus">+</span></button>
+        <button class="faq-q"><span class="faq-num">04</span><span class="faq-q-text">一對一的兩個方案，差別為何？我該選哪一個？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>兩者定位不同，皆可單獨報名，差別在於你是需要「深度盤點，定位自我」還是「長期陪伴，持續落實」：</p>
 
@@ -1137,7 +1152,7 @@ footer a:hover{color:var(--terracotta);}
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-num">04</span><span class="faq-q-text">【自我實現工作坊】跟坊間的自我照顧、紓壓課有什麼不同？</span><span class="plus">+</span></button>
+        <button class="faq-q"><span class="faq-num">05</span><span class="faq-q-text">【自我實現工作坊】跟坊間的自我照顧、紓壓課有什麼不同？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>這不是一堂教你放鬆放空的紓壓課，而是一堂陪你「主動為潛力爭取空間」的實踐課。</p>
           <ul class="tick" style="margin-top:8px;">
@@ -1148,7 +1163,7 @@ footer a:hover{color:var(--terracotta);}
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-num">05</span><span class="faq-q-text">我完全沒有心理學背景，可以參加嗎？</span><span class="plus">+</span></button>
+        <button class="faq-q"><span class="faq-num">06</span><span class="faq-q-text">我完全沒有心理學背景，可以參加嗎？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>完全可以！這套課程就是專門為所有人設計的實用工具。</p>
           <p style="margin-top:8px;">課程以 Tifa 獨家研發的《5% 行為改變卡》為核心（內含「有毒行為卡」、「有機行為卡」與「5% 改變卡」），搭配自我決定理論、工作重塑與生命設計等心理學架構。我們已將硬核的理論轉化為白話引導、直覺抽卡與實作練習，你不需要讀過任何心理學書籍，就能輕鬆上手、看懂自己。</p>
@@ -1156,7 +1171,7 @@ footer a:hover{color:var(--terracotta);}
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-num">06</span><span class="faq-q-text">什麼是《5% 行為改變卡》？有實體牌卡可以購買嗎？</span><span class="plus">+</span></button>
+        <button class="faq-q"><span class="faq-num">07</span><span class="faq-q-text">什麼是《5% 行為改變卡》？有實體牌卡可以購買嗎？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>這是一套結合心理學理論與實務經驗、帶你看清自我慣性的專利引導工具。</p>
           <ul class="tick" style="margin-top:8px;">
@@ -1168,7 +1183,7 @@ footer a:hover{color:var(--terracotta);}
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-num">07</span><span class="faq-q-text">工作坊跟一對一，是線上還是實體？</span><span class="plus">+</span></button>
+        <button class="faq-q"><span class="faq-num">08</span><span class="faq-q-text">工作坊跟一對一，是線上還是實體？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>全系列皆採「線上進行」，不受地點限制！</p>
           <p style="margin-top:8px;">不論是兩堂小班工作坊還是一對一諮詢，我們都會使用專屬的「線上互動式牌卡網頁」進行測驗與盤點。只要準備好順暢的網路、電腦（或平板）以及一顆放鬆的心，在世界任何地方都能輕鬆參與。</p>
@@ -1176,7 +1191,7 @@ footer a:hover{color:var(--terracotta);}
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-num">08</span><span class="faq-q-text">想幫公司或團隊採購，適合嗎？</span><span class="plus">+</span></button>
+        <button class="faq-q"><span class="faq-num">09</span><span class="faq-q-text">想幫公司或團隊採購，適合嗎？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>非常適合！這套系統能有效提升團隊心理安全感與跨部門溝通效率。</p>
           <ul class="tick" style="margin:8px 0 12px;">
@@ -1189,7 +1204,7 @@ footer a:hover{color:var(--terracotta);}
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-num">09</span><span class="faq-q-text">什麼樣的人，非常不適合參加這個系列？</span><span class="plus">+</span></button>
+        <button class="faq-q"><span class="faq-num">10</span><span class="faq-q-text">什麼樣的人，非常不適合參加這個系列？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>為了確保每一位參與者都能獲得最好的學習體驗，如果你的狀態符合以下幾點，這個課程可能「不適合」當下的你：</p>
           <ul class="tick" style="margin-top:8px;">
@@ -1201,7 +1216,7 @@ footer a:hover{color:var(--terracotta);}
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-num">10</span><span class="faq-q-text">我很忙，真的能在 2.5 小時／一對一諮詢裡看到改變嗎？</span><span class="plus">+</span></button>
+        <button class="faq-q"><span class="faq-num">11</span><span class="faq-q-text">我很忙，真的能在 2.5 小時／一對一諮詢裡看到改變嗎？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>可以，因為 Your Turn 品牌不追求一次性的「宏大翻轉」，而是想陪你找到「第一個能啟動的 5% 支點」。</p>
           <p style="margin-top:10px;padding-bottom:4px;"><b>🌱 單堂工作坊｜改變的點火器</b></p>
@@ -1212,7 +1227,7 @@ footer a:hover{color:var(--terracotta);}
       </div>
 
       <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-num">11</span><span class="faq-q-text">報名後如果想取消或改期，會怎麼樣？</span><span class="plus">+</span></button>
+        <button class="faq-q"><span class="faq-num">12</span><span class="faq-q-text">報名後如果想取消或改期，會怎麼樣？</span><span class="plus">+</span></button>
         <div class="faq-a">
           <p>我們非常理解生活中總有突發狀況，優先建議你選擇「免費改期」！</p>
           <p style="margin-top:10px;"><b>選擇改期：</b>只要在開課／諮詢前通知我們，即可免費延期至下一場工作坊，或重新調整一對一時段。</p>
@@ -1366,7 +1381,7 @@ footer a:hover{color:var(--terracotta);}
             <summary>忘記匯款資訊？點此展開</summary>
             <div class="pay-info-box">
               <div class="pay-row"><span>銀行</span><span>國泰世華銀行（013）</span></div>
-              <div class="pay-row"><span>帳號</span><span>699503727696</span></div>
+              <div class="pay-row"><span>帳號</span><span class="pay-account">699503727696<button type="button" class="copy-btn" data-copy="699503727696" onclick="copyPayAccount(this)">複製</button></span></div>
             </div>
           </details>
         </label>
@@ -1407,6 +1422,29 @@ footer a:hover{color:var(--terracotta);}
 </footer>
 
 <script>
+// 匯款帳號複製按鈕
+function copyPayAccount(btn){
+  var text = btn.getAttribute('data-copy');
+  function ok(){
+    btn.textContent = '已複製 ✓';
+    btn.classList.add('copied');
+    clearTimeout(btn._copyTimer);
+    btn._copyTimer = setTimeout(function(){ btn.textContent = '複製'; btn.classList.remove('copied'); }, 1800);
+  }
+  function fallback(){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(ok).catch(function(){ fallback(); ok(); });
+  } else {
+    fallback(); ok();
+  }
+}
+
 // FAQ
 document.querySelectorAll('.faq-item').forEach(function(item){
   var q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');
